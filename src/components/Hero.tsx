@@ -5,7 +5,7 @@ export default function Hero() {
     return (
         <section className="relative px-6 md:px-20 lg:px-40 py-16 md:py-24">
             <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div className="flex flex-col gap-8 order-2 lg:order-1">
+                <div className="flex flex-col gap-8 order-1 lg:order-1">
                     <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-3 py-1 rounded-full w-fit">
                         <span className="material-symbols-outlined text-sm">public</span>
                         <span className="text-xs font-bold uppercase tracking-wider">Connecting Everyone to the World</span>
@@ -38,7 +38,7 @@ export default function Hero() {
                         <p><span className="text-primary"></span> <span className="italic">It's not just your company, all small and medium-sized Korean companies are in the same situation.</span></p>
                     </div>
                 </div>
-                <div className="order-1 lg:order-2">
+                <div className="order-1 lg:order-1">
                     <div className="relative rounded-2xl bg-white/10 backdrop-blur-md p-2 shadow-2xl border border-white/20 rotate-0 hover:rotate-0 transition-all duration-500">
                         <div className="rounded-xl overflow-hidden aspect-[4/3] relative transform-none">
                             <Image
