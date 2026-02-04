@@ -14,7 +14,8 @@ export default function Home() {
           <Hero />
           <Experts />
           <SilentBarrier />
-          <Globe />
+          {/* <Globe /> */}
+          
         </main>
       </div>
     </>
