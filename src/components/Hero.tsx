@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export default function Hero() {
     return (
-        <section className="relative bg-gradient-to-b from-sky-pale to-white dark:from-slate-900 dark:to-background-dark px-6 md:px-20 lg:px-40 py-16 md:py-24">
+        <section className="relative px-6 md:px-20 lg:px-40 py-16 md:py-24">
             <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div className="flex flex-col gap-8 order-2 lg:order-1">
                     <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-3 py-1 rounded-full w-fit">
@@ -11,10 +11,10 @@ export default function Hero() {
                         <span className="text-xs font-bold uppercase tracking-wider">Connecting Everyone to the World</span>
                     </div>
                     <div className="flex flex-col gap-4">
-                        <h1 className="text-4xl md:text-6xl font-black leading-[1.1] tracking-[-0.033em] space-grotesk dark:text-slate-100">
+                        <h1 className="text-4xl md:text-6xl font-black leading-[1.1] tracking-[-0.033em] space-grotesk text-white">
                             Speak Local <span className="text-primary">Sell Global</span>
                         </h1>
-                        <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 font-normal leading-relaxed max-w-[500px]">
+                        <p className="text-lg md:text-xl text-slate-200 font-normal leading-relaxed max-w-[500px]">
                             Exceptional products. World-class technology. Outstanding service. Don't let the English language barrier become the glass ceiling between your business and international opportunities.
                         </p>
                     </div>
@@ -23,7 +23,7 @@ export default function Hero() {
                             Request Free Consultation
                         </button>
                     </div>
-                    <div className="flex items-center gap-4 text-sm text-slate-500">
+                    <div className="flex items-center gap-4 text-sm text-slate-300">
                         <div className="flex -space-x-2">
                             <div className="w-8 h-8 rounded-full border-2 border-white bg-blue-100 flex items-center justify-center overflow-hidden relative">
                                 <Image alt="User avatar" fill className="object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOZKQf_VjmfqZSEGSQPTR76BvGuRbfurHLa08bxn9-y8Xpggp17dv-ZzP9Kb8sDGivmWdLgOZ6w9O-spUT3WBZk3cz29DqNilaVSIp-Q7kznIJoFQ1KMCssu-TFxZc9uFgMYtWLoJQXnO_EQae4YTk_Yvl6X36grEHqxhmPywwhq-PMADxcH1wdcBb21G1bBa2sGrOqV1rd_hFCxZb01Xj9DNaG0sOEnfNkXhRHTyzpQ-dnPFDBwCch4DUxYt2nS49R1keVg2bAo0" />
@@ -39,7 +39,7 @@ export default function Hero() {
                     </div>
                 </div>
                 <div className="order-1 lg:order-2">
-                    <div className="relative rounded-2xl bg-white dark:bg-slate-800 p-2 shadow-2xl border border-primary/10 rotate-0 hover:rotate-0 transition-all duration-500">
+                    <div className="relative rounded-2xl bg-white/10 backdrop-blur-md p-2 shadow-2xl border border-white/20 rotate-0 hover:rotate-0 transition-all duration-500">
                         <div className="rounded-xl overflow-hidden aspect-[4/3] relative transform-none">
                             <Image
                                 alt="Diverse team of social media managers working in a modern office"

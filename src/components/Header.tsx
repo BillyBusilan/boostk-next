@@ -28,14 +28,14 @@ export default function Header() {
     };
 
     return (
-        <header className="sticky top-0 z-50 w-full border-b border-solid border-slate-200 dark:border-slate-800 bg-white/90 dark:bg-background-dark/90 backdrop-blur-md px-6 md:px-20 lg:px-40 py-4 flex items-center justify-between">
-            <h2 className="text-xl font-extrabold leading-tight tracking-[-0.015em] dark:text-slate-200">BOOSTK</h2>
+        <header className="sticky top-0 z-50 w-full border-b border-solid border-white/10 bg-black/20 backdrop-blur-md px-6 md:px-20 lg:px-40 py-4 flex items-center justify-between">
+            <h2 className="text-xl font-extrabold leading-tight tracking-[-0.015em] text-white">BOOSTK</h2>
 
             <nav className="hidden md:flex flex-1 justify-center gap-8">
-                <Link className="text-sm font-semibold hover:text-primary transition-colors dark:text-slate-200 dark:hover:text-primary" href="#">Services</Link>
-                <Link className="text-sm font-semibold hover:text-primary transition-colors dark:text-slate-200 dark:hover:text-primary" href="#">Solution</Link>
-                <Link className="text-sm font-semibold hover:text-primary transition-colors dark:text-slate-200 dark:hover:text-primary" href="#">Pricing</Link>
-                <Link className="text-sm font-semibold hover:text-primary transition-colors dark:text-slate-200 dark:hover:text-primary" href="#">Contact</Link>
+                <Link className="text-sm font-semibold hover:text-primary transition-colors text-slate-200" href="#">Services</Link>
+                <Link className="text-sm font-semibold hover:text-primary transition-colors text-slate-200" href="#">Solution</Link>
+                <Link className="text-sm font-semibold hover:text-primary transition-colors text-slate-200" href="#">Pricing</Link>
+                <Link className="text-sm font-semibold hover:text-primary transition-colors text-slate-200" href="#">Contact</Link>
             </nav>
 
             <div className="flex gap-3">
@@ -50,7 +50,7 @@ export default function Header() {
                     </span>
                 </button>
 
-                <button className="hidden sm:flex min-w-[100px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-primary/15 text-primary text-sm font-bold transition-all hover:bg-primary/30">
+                <button className="hidden sm:flex min-w-[100px] cursor-pointer items-center justify-center rounded-lg h-10 px-4 bg-white/10 text-white text-sm font-bold transition-all hover:bg-white/20">
                     🌐 English
                 </button>
                 <button className="flex min-w-[120px] cursor-pointer items-center justify-center rounded-lg h-10 px-6 bg-primary text-white text-sm font-bold shadow-lg shadow-primary/30 transition-all hover:bg-primary-dark hover:scale-105">
