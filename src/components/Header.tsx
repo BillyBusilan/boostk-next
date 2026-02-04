@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Header() {
   const [isDarkMode, setIsDarkMode] = useState(false);
@@ -45,9 +46,13 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-solid border-white/10 bg-black/20 backdrop-blur-md px-6 md:px-20 lg:px-40 py-4 flex items-center justify-between">
-      <h2 className="text-xl font-extrabold leading-tight tracking-[-0.015em] text-white">
-        BOOSTK
-      </h2>
+      <Image 
+        src="/images/logo.webp" 
+        alt="BOOSTK Logo" 
+        width={120} 
+        height={40}
+        className="h-10 w-auto"
+      />
 
       <nav className="hidden md:flex flex-1 justify-center gap-8">
         <Link
