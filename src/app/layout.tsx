@@ -31,12 +31,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${manrope.variable} ${spaceGrotesk.variable} light`}>
+    <html lang="en" className={`${manrope.variable} ${spaceGrotesk.variable}`}>
       <head>
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
       </head>
-      <body className="bg-background-light dark:bg-background-dark text-[#1e293b] dark:text-slate-200 font-display overflow-x-hidden antialiased">
-        {/* <Script src="https://cdn.jsdelivr.net/npm/react-scan/dist/auto.global.js" /> */}
+      <body className="bg-background-light text-[#1e293b] font-display overflow-x-hidden antialiased">
+        <Script src="https://cdn.jsdelivr.net/npm/react-scan/dist/auto.global.js" />
         {children}
       </body>
     </html>
