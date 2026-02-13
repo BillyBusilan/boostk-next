@@ -2,20 +2,20 @@ import React from 'react';
 
 // --- Barrier Grid Component ---
 
-const BarrierCard = ({ 
-  icon, 
-  title, 
-  questions, 
-  solution, 
-  visual 
-}: { 
-  icon: string, 
-  title: string, 
-  questions: string[], 
-  solution: string, 
-  visual: React.ReactNode 
+const BarrierCard = ({
+  icon,
+  title,
+  questions,
+  solution,
+  visual
+}: {
+  icon: string,
+  title: string,
+  questions: string[],
+  solution: string,
+  visual: React.ReactNode
 }) => (
-  <div className="bg-white rounded-xl border border-slate-200 p-8 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col h-full relative overflow-hidden group">
+  <div className="bg-white rounded-xl border border-slate-200 p-5 md:p-8 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col h-full relative overflow-hidden group">
     <div className="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-10 transition-opacity">
       <span className="material-symbols-outlined text-9xl text-primary">{icon}</span>
     </div>
@@ -49,78 +49,6 @@ const BarrierCard = ({
   </div>
 );
 
-export const Barriers = () => (
-  <section className="py-24 bg-surface-light relative">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="text-center mb-16">
-        <h2 className="text-3xl font-display font-extrabold text-primary mb-2">Where Do You Feel the English Barrier Most?</h2>
-        <p className="text-base text-slate-500 max-w-lg mx-auto">Self-diagnose the gap stopping your global growth</p>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <BarrierCard 
-          icon="mail" 
-          title="Global Communication" 
-          questions={["When you receive an English email, do you hesitate before replying?", "Are your proposals written in clear, confident English that impresses buyers?"]}
-          solution="BOOSTK writes, designs, and communicates in fluent business English — for you."
-          visual={
-            <div className="w-3/4 bg-white shadow-lg rounded-lg p-3 border border-slate-100">
-              <div className="h-2 w-1/3 bg-slate-200 rounded mb-2"></div>
-              <div className="h-2 w-full bg-slate-100 rounded mb-1"></div>
-            </div>
-          }
-        />
-        <BarrierCard 
-          icon="campaign" 
-          title="Social & Strategy" 
-          questions={["Do your social posts speak only to local audiences?", "Do you struggle to create scroll-stopping content for global markets?"]}
-          solution="BOOSTK creates scroll-stopping, English-ready content for your global market."
-          visual={
-            <div className="w-2/3 bg-white shadow-lg rounded-lg p-4 border border-slate-100 flex items-center gap-3">
-              <div className="w-10 h-10 bg-blue-100 rounded-lg"></div>
-              <div className="flex-grow space-y-2">
-                <div className="h-2 w-full bg-slate-100 rounded"></div>
-                <div className="h-2 w-2/3 bg-slate-100 rounded"></div>
-              </div>
-            </div>
-          }
-        />
-        <BarrierCard 
-          icon="trending_up" 
-          title="Sales & Market Development" 
-          questions={["Have you lost interested buyers because your English explanations weren't clear?", "Does your sales pipeline stall when communication switches to English?"]}
-          solution="BOOSTK drives your sales funnel with native-level English negotiation."
-          visual={
-             <div className="w-3/4 bg-white shadow-lg rounded-lg p-4 border border-slate-100 flex flex-col gap-2">
-              <div className="flex justify-between items-center mb-1">
-                <div className="h-2 w-1/4 bg-slate-200 rounded"></div>
-                <div className="h-2 w-1/4 bg-green-100 rounded"></div>
-              </div>
-              <div className="h-1 w-full bg-slate-100 rounded overflow-hidden">
-                <div className="h-full bg-primary w-2/3"></div>
-              </div>
-              <div className="h-2 w-1/2 bg-slate-100 rounded mt-1"></div>
-            </div>
-          }
-        />
-        <BarrierCard 
-          icon="public" 
-          title="Global Strategy & Planning" 
-          questions={["Are competitors already marketing effectively in the U.S. and Europe?", "Is your investor deck ready for top-tier international VC review?"]}
-          solution="BOOSTK builds your roadmap for seamless expansion into new territories."
-          visual={
-             <div className="w-3/4 h-24 bg-white shadow-lg rounded-lg p-2 border border-slate-100 flex items-center justify-center relative">
-              <div className="absolute inset-0 m-auto w-24 h-24 border-[16px] border-blue-50 rounded-full border-t-primary rotate-45"></div>
-              <div className="absolute text-center">
-                <span className="text-xs font-bold text-primary">Global</span>
-              </div>
-            </div>
-          }
-        />
-      </div>
-    </div>
-  </section>
-);
-
 // --- HQ Component ---
 
 const ServiceItem = ({ icon, title, sub }: { icon: string, title: string, sub: string }) => (
@@ -137,69 +65,26 @@ const ServiceItem = ({ icon, title, sub }: { icon: string, title: string, sub: s
   </div>
 );
 
-export const Headquarters = () => (
-  <section className="py-16 bg-white border-b border-slate-100 relative overflow-hidden" id="hq-section">
-    <div className="absolute inset-0 pointer-events-none">
-      <svg className="absolute w-full h-full opacity-[0.03]" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <pattern height="20" id="grid-sm" patternUnits="userSpaceOnUse" width="20">
-            <circle cx="1" cy="1" fill="#3b82f5" r="1"></circle>
-          </pattern>
-        </defs>
-        <rect fill="url(#grid-sm)" height="100%" width="100%"></rect>
-      </svg>
-    </div>
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-      <div className="lg:grid lg:grid-cols-12 lg:gap-8 items-center">
-        <div className="lg:col-span-7 mb-10 lg:mb-0">
-          <h2 className="text-3xl font-display font-extrabold text-primary mb-3 leading-tight">
-            BOOSTK — <span className="text-primary">Your Global Business Headquarters</span>
-          </h2>
-          <p className="text-base text-slate-500 leading-relaxed mb-8 max-w-2xl">
-            We act as your in-house Global Department. Select a division below to see how we integrate with your team.
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <ServiceItem icon="ads_click" title="Marketing & Content Strategy" sub="Strategy & Execution" />
-            <ServiceItem icon="trending_up" title="Sales & Leads" sub="Generation & Closing" />
-            <ServiceItem icon="business_center" title="Business Planning & Strategy" sub="Roadmap & Development" />
-            <ServiceItem icon="language" title="Global Client Communication" sub="Translation & Outreach" />
-          </div>
-        </div>
-        <div className="lg:col-span-5 h-full relative">
-          <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl border border-slate-200 p-8 lg:p-10 text-center shadow-lg min-h-[340px] flex flex-col justify-center">
-            <div className="w-16 h-16 rounded-2xl bg-[#3b82f5]/5 flex items-center justify-center mx-auto mb-6 border border-[#3b82f5]/10">
-              <span className="material-symbols-outlined text-primary text-3xl">handshake</span>
-            </div>
-            <h3 className="text-xl font-bold text-slate-900 mb-4 tracking-tight">Partnership Model</h3>
-            <p className="text-slate-500 text-sm leading-relaxed mx-auto">
-              We're embedded in your business as a remote extension of your team, not a vendor. Your success is our success.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-);
 
 // --- Marquee Component ---
 
-const SuccessCard = ({ 
-  tag, 
-  title, 
-  images, 
-  quote, 
-  author 
-}: { 
-  tag: string, 
-  title: string, 
-  images: { before: string, after?: string }, 
-  quote: string, 
-  author: string 
+const SuccessCard = ({
+  tag,
+  title,
+  images,
+  quote,
+  author
+}: {
+  tag: string,
+  title: string,
+  images: { before: string, after?: string },
+  quote: string,
+  author: string
 }) => (
-  <div className="w-[400px] bg-white border-0 shadow-[0_10px_30px_-5px_rgba(59,130,245,0.08)] p-8 flex flex-col gap-5 flex-shrink-0 rounded-lg">
+  <div className="w-[260px] sm:w-[300px] md:w-[350px] lg:w-[400px] bg-white border-0 shadow-[0_10px_30px_-5px_rgba(59,130,245,0.08)] p-4 sm:p-6 lg:p-8 flex flex-col gap-3 sm:gap-4 lg:gap-5 flex-shrink-0 rounded-lg">
     <div className="flex justify-between items-start">
       <div className="flex text-primary gap-0.5">
-        {[1,2,3,4,5].map(i => <span key={i} className="material-symbols-outlined text-lg fill-current">star</span>)}
+        {[1, 2, 3, 4, 5].map(i => <span key={i} className="material-symbols-outlined text-lg fill-current">star</span>)}
       </div>
       <span className="px-2.5 py-1 bg-blue-50 text-primary text-[10px] font-bold uppercase tracking-wider border border-blue-100">{tag}</span>
     </div>
@@ -253,20 +138,20 @@ export const Marquee = () => {
   ];
 
   // duplicate for continuous scroll
-  const allCards = [...cards, ...cards, ...cards]; 
+  const allCards = [...cards, ...cards, ...cards];
 
   return (
-    <section className="py-24 bg-blue-50/20 border-y border-blue-100 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center">
-        <h2 className="text-3xl md:text-4xl font-display font-extrabold text-primary mb-3">When Your Team Speaks English, Opportunity Arrives</h2>
-        <p className="text-base text-slate-500 max-w-lg mx-auto">Proven results from companies just like yours across global channels.</p>
+    <section className="py-12 lg:py-24 bg-blue-50/20 border-y border-blue-100 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-10 lg:mb-16 text-center">
+        <h2 className="text-2xl md:text-4xl font-display font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-500 to-blue-400 mb-3">When Your Team Speaks English, Opportunity Arrives</h2>
+        <p className="text-sm lg:text-base text-slate-500 max-w-lg mx-auto">Proven results from companies just like yours across global channels.</p>
       </div>
       <div className="relative w-full">
-        <div className="flex overflow-hidden w-full no-scrollbar">
-          <div className="animate-marquee py-6 space-x-6 flex">
+        <div className="flex overflow-hidden w-full no-scrollbar justify-center">
+          <div className="animate-marquee py-6 space-x-6 flex justify-center">
             {allCards.map((card, i) => (
-              <SuccessCard 
-                key={i} 
+              <SuccessCard
+                key={i}
                 tag={card.tag}
                 title={card.title}
                 images={card.images}
