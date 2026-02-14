@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+.navbar {
+    @apply fixed top-0 w-full h-14;
+    @apply z-50;
+    @apply border-b border-gray-200;
+    @apply bg-white/95 backdrop-blur-md;
+}
+
+.navbar-container{
+    @apply max-w-7xl;
+    @apply mx-auto;
+    @apply px-4 sm:px-6 lg:px-8;
+    @apply h-full;
+}
+
+.navbar-inner{
+    @apply flex;
+    @apply justify-between;
+    @apply items-center;
+    @apply h-full;
+}
+
+.navbar-logo{
+    @apply flex-shrink-0;
+    @apply flex;
+    @apply items-center;
+    @apply gap-2;
+}
+
+.navbar-logo-image{
+    @apply h-8;
+    @apply w-auto;
+    @apply object-contain;
+}
+
+.navbar-menu{
+    @apply text-xs;
+    @apply font-medium;
+    @apply text-slate-600  hover:text-blue-600;
+    @apply transition-colors;
+}
+
+.navbar-button{
+    @apply hidden;
+    @apply md:flex;
+    @apply items-center;
+    @apply space-x-3
+}

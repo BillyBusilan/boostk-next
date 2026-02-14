@@ -10,6 +10,7 @@
   --color-background-light: #f8fafc;
   --color-background-dark: #0f172a;
   --color-sky-pale: #e0f2fe;
+  --color-border-light: #e2e8f0;
 
   --font-display: var(--font-manrope);
   --font-space-grotesk: var(--font-space-grotesk);
@@ -31,6 +32,7 @@
   --color-background-light: var(--color-background-light);
   --color-background-dark: var(--color-background-dark);
   --color-sky-pale: var(--color-sky-pale);
+  --color-border-light: var(--color-border-light);
 
   --font-display: var(--font-manrope);
   --font-space-grotesk: var(--font-space-grotesk);
