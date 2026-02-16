@@ -1,67 +1,6 @@
 import React from 'react';
-
-interface SectionHeaderProps {
-  // Badge props
-  badgeText: string;
-  badgeColor?: 'blue' | 'purple' | 'green' | 'red' | 'orange';
-  showPulse?: boolean;
-  
-  // Heading props
-  title: string;
-  highlightedText?: string;
-  gradientColors?: string;
-  
-  // Description props
-  description: string;
-  maxWidth?: 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl';
-}
-
-const colorConfig = {
-  blue: {
-    bg: 'bg-blue-50',
-    border: 'border-blue-100',
-    dot: 'bg-blue-500',
-    text: 'text-blue-600',
-    gradient: 'from-blue-600 via-indigo-500 to-blue-400'
-  },
-  purple: {
-    bg: 'bg-purple-50',
-    border: 'border-purple-100',
-    dot: 'bg-purple-500',
-    text: 'text-purple-600',
-    gradient: 'from-purple-600 via-indigo-500 to-purple-400'
-  },
-  green: {
-    bg: 'bg-green-50',
-    border: 'border-green-100',
-    dot: 'bg-green-500',
-    text: 'text-green-600',
-    gradient: 'from-green-600 via-emerald-500 to-green-400'
-  },
-  red: {
-    bg: 'bg-red-50',
-    border: 'border-red-100',
-    dot: 'bg-red-500',
-    text: 'text-red-600',
-    gradient: 'from-red-600 via-rose-500 to-red-400'
-  },
-  orange: {
-    bg: 'bg-orange-50',
-    border: 'border-orange-100',
-    dot: 'bg-orange-500',
-    text: 'text-orange-600',
-    gradient: 'from-orange-600 via-amber-500 to-orange-400'
-  }
-};
-
-const maxWidthConfig = {
-  sm: 'max-w-sm',
-  md: 'max-w-md',
-  lg: 'max-w-lg',
-  xl: 'max-w-xl',
-  '2xl': 'max-w-2xl',
-  '3xl': 'max-w-3xl'
-};
+import { SectionHeaderProps } from '../../types/header';
+import { colorConfig, maxWidthConfig } from '../../data/header';
 
 export const SectionHeader: React.FC<SectionHeaderProps> = ({
   badgeText,
@@ -71,15 +10,22 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
   highlightedText,
   gradientColors,
   description,
-  maxWidth = '2xl'
+  maxWidth = '2xl',
+  align = 'center'
 }) => {
   const colors = colorConfig[badgeColor];
   const gradient = gradientColors || colors.gradient;
 
+  const alignmentClasses = {
+    wrapper: align === 'center' ? 'text-center' : 'text-left',
+    badge: align === 'center' ? 'justify-center mx-auto' : 'justify-start mr-auto',
+    description: align === 'center' ? 'mx-auto' : 'mr-auto',
+  };
+
   return (
-    <div className="text-center mb-16">
+    <div className={`${alignmentClasses.wrapper} mb-16`}>
       {/* Badge */}
-      <div className={`inline-flex items-center justify-center px-4 py-1.5 mb-6 rounded-full ${colors.bg} border ${colors.border} backdrop-blur-sm`}>
+      <div className={`inline-flex items-center px-4 py-1.5 mb-6 rounded-full ${colors.bg} border ${colors.border} backdrop-blur-sm ${alignmentClasses.badge}`}>
         <span className={`w-2.5 h-2.5 rounded-full ${colors.dot} mr-2.5 ${showPulse ? 'animate-pulse' : ''}`} />
         <span className="text-[10px] font-extrabold tracking-[0.2em] text-primary uppercase">
           {badgeText}
@@ -102,7 +48,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
       </h2>
 
       {/* Description */}
-      <p className={`text-base md:text-lg text-slate-500 ${maxWidthConfig[maxWidth]} mx-auto leading-relaxed`}>
+      <p className={`text-base md:text-lg text-slate-500 ${maxWidthConfig[maxWidth]} ${alignmentClasses.description} leading-relaxed`}>
         {description}
       </p>
     </div>

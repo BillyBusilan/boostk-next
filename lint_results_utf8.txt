@@ -4,13 +4,20 @@
 
 
 C:\Users\billy\.gemini\antigravity\scratch\boostk-next\src\app\layout.tsx
-  36:9  warning  Custom fonts not added in `pages/_document.js` will only load for a single page. This is discouraged. See: https://nextjs.org/docs/messages/no-page-custom-font  @next/next/no-page-custom-font
+   3:8  warning  'Script' is defined but never used                                                                                                                               @typescript-eslint/no-unused-vars
+  37:9  warning  Custom fonts not added in `pages/_document.js` will only load for a single page. This is discouraged. See: https://nextjs.org/docs/messages/no-page-custom-font  @next/next/no-page-custom-font
 
 C:\Users\billy\.gemini\antigravity\scratch\boostk-next\src\app\page.tsx
-  6:8  warning  'Globe' is defined but never used  @typescript-eslint/no-unused-vars
+  6:10  warning  'Carousel' is defined but never used  @typescript-eslint/no-unused-vars
 
-C:\Users\billy\.gemini\antigravity\scratch\boostk-next\src\components\Header.tsx
-  18:7  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+C:\Users\billy\.gemini\antigravity\scratch\boostk-next\src\components\Landing Page\Barrier Section\Barrier.tsx
+  79:23  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+C:\Users\billy\.gemini\antigravity\scratch\boostk-next\src\components\Landing Page\Calling.tsx
+  2:8  warning  'Image' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\billy\.gemini\antigravity\scratch\boostk-next\src\components\Landing Page\Carousel.tsx
+  95:5  error  Error: Calling setState synchronously within an effect can trigger cascading renders
 
 Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
 * Update external systems with the latest state from React.
@@ -18,18 +25,52 @@ Effects are intended to synchronize state between React and external systems suc
 
 Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
 
-C:\Users\billy\.gemini\antigravity\scratch\boostk-next\src\components\Header.tsx:18:7
-  16 |     ) {
-  17 |       document.documentElement.classList.add("dark");
-> 18 |       setIsDarkMode(true);
-     |       ^^^^^^^^^^^^^ Avoid calling setState() directly within an effect
-  19 |     } else {
-  20 |       document.documentElement.classList.remove("dark");
-  21 |       setIsDarkMode(false);  react-hooks/set-state-in-effect
+C:\Users\billy\.gemini\antigravity\scratch\boostk-next\src\components\Landing Page\Carousel.tsx:95:5
+  93 |   // Reset position when tab changes
+  94 |   useEffect(() => {
+> 95 |     setPosition(0);
+     |     ^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  96 |   }, [activeTab]);
+  97 |
+  98 |   const getCardStyle = (index: number): React.CSSProperties => {  react-hooks/set-state-in-effect
 
-C:\Users\billy\.gemini\antigravity\scratch\boostk-next\src\components\Hero.tsx
-  18:99  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
-  38:94  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+C:\Users\billy\.gemini\antigravity\scratch\boostk-next\src\components\Landing Page\Features.tsx
+    5:7   warning  'BarrierCard' is assigned a value but never used                                                                                                                                                                                                                                         @typescript-eslint/no-unused-vars
+   54:7   warning  'ServiceItem' is assigned a value but never used                                                                                                                                                                                                                                         @typescript-eslint/no-unused-vars
+   94:9   warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  100:9   warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  107:7   error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                          react/no-unescaped-entities
+  107:15  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`                                                                                                                                                                                                                          react/no-unescaped-entities
 
-Γ£û 5 problems (3 errors, 2 warnings)
+C:\Users\billy\.gemini\antigravity\scratch\boostk-next\src\components\Landing Page\Headquarters.tsx
+    2:27  warning  'useEffect' is defined but never used                            @typescript-eslint/no-unused-vars
+  248:21  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  248:98  error    `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  304:51  warning  'index' is defined but never used                                @typescript-eslint/no-unused-vars
+
+C:\Users\billy\.gemini\antigravity\scratch\boostk-next\src\components\Landing Page\Hero Section\Globe.tsx
+    5:37  warning  'useCallback' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         @typescript-eslint/no-unused-vars
+  164:9   error    Error: This value cannot be modified
+
+Modifying a value returned from a hook is not allowed. Consider moving the modification into the hook where the value is constructed.
+
+C:\Users\billy\.gemini\antigravity\scratch\boostk-next\src\components\Landing Page\Hero Section\Globe.tsx:164:9
+  162 |
+  163 |     useEffect(() => {
+> 164 |         texture.colorSpace = THREE.SRGBColorSpace;
+      |         ^^^^^^^ `texture` cannot be modified
+  165 |         texture.generateMipmaps = true;
+  166 |         texture.minFilter = THREE.LinearMipmapLinearFilter;
+  167 |         texture.magFilter = THREE.LinearFilter;  react-hooks/immutability
+
+C:\Users\billy\.gemini\antigravity\scratch\boostk-next\src\components\Landing Page\Hero Section\Hero.tsx
+  30:20  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\billy\.gemini\antigravity\scratch\boostk-next\src\components\Landing Page\Pricing.tsx
+  46:68  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\billy\.gemini\antigravity\scratch\boostk-next\src\components\ui\LazyVideo.tsx
+  37:45  warning  The ref value 'videoRef.current' will likely have changed by the time this effect cleanup function runs. If this ref points to a node rendered by React, copy 'videoRef.current' to a variable inside the effect, and use that variable in the cleanup function  react-hooks/exhaustive-deps
+
+Γ£û 21 problems (8 errors, 13 warnings)
 

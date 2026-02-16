@@ -11,20 +11,20 @@ export const METRICS_DATA: MetricData[] = [
   {
     title: 'Global Partners',
     value: '94+',
-    subtext: 'Added this quarter',
+    subtext: 'New Partners',
     icon: 'public',
     accent: 'globe'
   },
   {
     title: 'Deal Velocity',
     value: '3x',
-    subtext: 'Faster to close',
+    subtext: 'Faster Sales',
     icon: 'bolt',
     accent: 'bolt'
   },
 ];
 
-export const STAGGER_CLASSES = ['md:mt-0', 'md:mt-12', 'md:mt-24'] as const;
+export const STAGGER_CLASSES = ['md:mt-0', 'md:mt-6', 'md:mt-12'] as const;
 
 export const ANIMATION_DELAYS = ['0s', '1.5s', '0.7s'] as const;
 

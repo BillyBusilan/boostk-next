@@ -8,12 +8,14 @@ const manrope = Manrope({
   subsets: ["latin"],
   variable: "--font-manrope",
   weight: ["300", "400", "500", "600", "700", "800"],
+  display: 'swap', // Prevent font blocking
 });
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   variable: "--font-space-grotesk",
   weight: ["300", "400", "500", "600", "700"],
+  display: 'swap', // Prevent font blocking
 });
 
 export const metadata: Metadata = {
@@ -37,7 +39,6 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
       </head>
       <body className="bg-background-light text-[#1e293b] font-display overflow-x-hidden antialiased">
-        <Script src="https://cdn.jsdelivr.net/npm/react-scan/dist/auto.global.js" />
         {children}
       </body>
     </html>

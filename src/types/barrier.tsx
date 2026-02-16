@@ -11,5 +11,5 @@ export interface CardData {
   icon: LucideIcon;
   iconDelay: string;
   cardDelay: string;
-  images: string[];
+  videos: string[];
 }

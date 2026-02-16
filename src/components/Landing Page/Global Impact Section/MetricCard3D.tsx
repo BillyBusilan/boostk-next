@@ -50,11 +50,11 @@ const AccentDecoration = ({ type }: { type: AccentType }) => {
 
 const FloatingIcon = ({ icon, delay }: { icon: string; delay?: string }) => (
     <div
-        className="absolute -left-6 -top-16 z-40 animate-bob pointer-events-none [transform-style:preserve-3d]"
+        className="absolute -left-4 -top-12 z-40 animate-bob pointer-events-none [transform-style:preserve-3d]"
         style={{ animationDelay: delay }}
     >
-        <div className="bg-white p-4 rounded-2xl shadow-2xl shadow-blue-500/30 border-2 border-blue-50 w-16 h-16 flex items-center justify-center transform transition-transform duration-500 group-hover:scale-125 group-hover:rotate-6">
-            <span className="material-symbols-outlined text-4xl text-primary">{icon}</span>
+        <div className="bg-white p-3 rounded-xl shadow-2xl shadow-blue-500/30 border-2 border-blue-50 w-12 h-12 flex items-center justify-center transform transition-transform duration-500 group-hover:scale-125 group-hover:rotate-6">
+            <span className="material-symbols-outlined text-3xl text-primary">{icon}</span>
         </div>
     </div>
 );
@@ -70,29 +70,29 @@ export const MetricCard3D = ({
     className = ''
 }: MetricData) => {
     return (
-        <div className={`relative group ${className}`}>
+        <div className={`relative group scale-65 ${className}`}>
             <FloatingIcon icon={icon} delay={delay} />
 
-            <div className="relative w-full aspect-[4/3] [transform-style:preserve-3d] [transform:rotateX(35deg)_rotateZ(-5deg)_skewY(2deg)] transition-transform duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:[transform:rotateX(30deg)_rotateZ(-3deg)_skewY(2deg)_translateY(-20px)]">
+            <div className="relative w-full aspect-[3/2] [transform-style:preserve-3d] [transform:rotateX(35deg)_rotateZ(-5deg)_skewY(2deg)] transition-transform duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] group-hover:[transform:rotateX(30deg)_rotateZ(-3deg)_skewY(2deg)_translateY(-20px)]">
                 {/* Glow Shadow */}
                 <div className="absolute top-24 left-8 w-11/12 h-5/6 bg-blue-500/40 filter blur-[60px] rounded-[40%] z-0 opacity-70 transition-all duration-700 group-hover:opacity-100 group-hover:blur-[80px] group-hover:scale-110" />
 
                 {/* Top Surface */}
-                <div className="relative w-full h-full bg-white rounded-3xl p-6 sm:p-7 flex flex-col justify-between border border-slate-100 shadow-inner z-10 overflow-hidden [transform:translateZ(20px)]">
+                <div className="relative w-full h-full bg-white rounded-2xl p-4 sm:p-5 flex flex-col justify-between border border-slate-100 shadow-inner z-10 overflow-hidden [transform:translateZ(20px)]">
                     <AccentDecoration type={accent} />
 
                     {/* Content */}
-                    <div className="relative z-20 mt-4">
-                        <h3 className="text-[10px] sm:text-xs font-black text-slate-400 uppercase tracking-[0.2em] mb-1 sm:mb-2">
+                    <div className="relative z-20 mt-2">
+                        <h3 className="text-[10px] sm:text-xs font-black text-slate-400 uppercase tracking-[0.2em] mb-1">
                             {title}
                         </h3>
-                        <div className="text-4xl sm:text-5xl lg:text-7xl font-black text-slate-900 tracking-tighter leading-none">
+                        <div className="text-3xl sm:text-4xl lg:text-6xl font-black text-slate-900 tracking-tighter leading-none">
                             {value}
                         </div>
                     </div>
 
                     {/* Footer */}
-                    <div className="relative z-20 border-t-2 border-slate-50 pt-4">
+                    <div className="relative z-20 border-t-2 border-slate-50 pt-2">
                         <p className="text-sm font-bold text-primary flex items-center">
                             <span className="material-symbols-outlined text-base mr-2">
                                 {ACCENT_ICONS[accent]}
@@ -105,9 +105,9 @@ export const MetricCard3D = ({
                 </div>
 
                 {/* 3D Side */}
-                <div className="absolute top-full left-0 w-full h-[60px] bg-gradient-to-b from-sky-400 to-sky-600 rounded-b-[2rem] z-0 [transform-origin:top] [transform:rotateX(-90deg)] overflow-hidden">
-                    <div className="absolute inset-0 animate-shimmer bg-gradient-to-r from-transparent via-white/20 to-transparent" />
-                </div>
+<div className="absolute top-full left-0 w-full h-[40px] bg-gradient-to-b from-blue-600 via-indigo-500 to-blue-400 rounded-b-[1.5rem] z-0 [transform-origin:top] [transform:rotateX(-90deg)] overflow-hidden">
+    <div className="absolute inset-0 animate-shimmer bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+</div>
             </div>
         </div>
     );

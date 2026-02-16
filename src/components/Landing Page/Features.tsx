@@ -104,7 +104,7 @@ const SuccessCard = ({
       </div>
     </div>
     <blockquote className="text-sm text-slate-600 leading-relaxed font-medium italic border-l-3 border-primary/30 pl-4 border-l-4 border-primary/20">
-      "{quote}"
+      &quot;{quote}&quot;
     </blockquote>
     <div className="mt-auto pt-4 border-t border-slate-50">
       <p className="text-[11px] font-bold text-slate-400 uppercase tracking-widest">{author}</p>

@@ -8,7 +8,7 @@ export const Hero = () => {
   return (
     <>
       <Navbar />
-      <header className="pt-20 pb-8 lg:pt-24 lg:pb-12 overflow-hidden relative bg-gradient-to-b from-blue-100 to-white">
+      <header className="pt-20 pb-8 lg:pt-24 lg:pb-12 overflow-hidden relative bg-gradient-to-b from-blue-200 via-blue-100 via-80% ">
         <Globe />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="lg:grid lg:grid-cols-12 lg:gap-8 items-start mb-8">
@@ -27,13 +27,13 @@ export const Hero = () => {
               </h1>
 
               <p className="text-lg text-slate-600 mb-8 leading-relaxed max-w-lg">
-                Don't let the language barrier act as a glass ceiling. We act as your
+                Don&apos;t let the language barrier act as a glass ceiling. We act as your
                 in-house global department for sales, marketing, and strategy.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-12">
                 <button className="bg-primary hover:bg-primary-dark text-white px-8 py-4 rounded-lg font-medium transition-all shadow-lg hover:shadow-primary/25 text-lg">
-                  Request Consultation
+                  Request Free Consultation
                 </button>
               </div>
             </div>
@@ -48,6 +48,7 @@ export const Hero = () => {
                     <video
                       className="w-full h-full object-cover"
                       controls
+                      preload="metadata"
                     >
                       <source src="/videos/herovideo1.mp4" type="video/mp4" />
                       Your browser does not support the video tag.
@@ -59,8 +60,8 @@ export const Hero = () => {
 
               {/* <div className="flex items-center justify-between mb-2">
                 <p className="text-xs font-semibold text-black uppercase tracking-wider whitespace-nowrap">THE SILENT BARRIER</p>
-              </div> */}
-              {/* <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                 <SmallInfoCard icon="mail" title="Unanswered Emails" sub="Average 40% drop-off" />
                 <SmallInfoCard icon="chat_bubble" title="Lost Conversations" sub="Misunderstood intent" />
                 <SmallInfoCard icon="notifications" title="Missed Deals" sub="Delayed response" />

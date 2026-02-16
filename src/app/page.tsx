@@ -4,10 +4,10 @@ import { Marquee } from "@/components/Landing Page/Features";
 import Barrier from "@/components/Landing Page/Barrier Section/Barrier";
 import { Pricing } from "@/components/Landing Page/Pricing";
 import { Carousel } from "@/components/Landing Page/Carousel";
-import { Steps } from "@/components/Landing Page/Steps";
+import { Steps } from "@/components/Landing Page/Steps Section/Steps";
 import { Calling } from "@/components/Landing Page/Calling";
 import { Footer } from "@/components/Landing Page/Footer";
-import { Headquarters } from "@/components/Landing Page/Headquarters";
+import { Headquarters } from "@/components/Landing Page/Headquarters Section/Headquarters";
 
 export default function Home() {
   return (
@@ -17,7 +17,7 @@ export default function Home() {
       {/* <Carousel /> */}
       <Barrier />
       <Headquarters />
-      <Marquee />
+      {/* <Marquee /> */}
       <Steps />
       <Pricing />
       <Calling />

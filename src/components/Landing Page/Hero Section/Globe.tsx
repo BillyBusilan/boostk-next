@@ -2,7 +2,7 @@
 
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Sphere, Environment, useTexture, Html } from '@react-three/drei';
-import { useRef, useState, useMemo, useCallback } from 'react';
+import { useRef, useState, useMemo, useCallback, useEffect } from 'react';
 import * as THREE from 'three';
 
 // Chat messages with geographic coordinates (lat, lng)
@@ -158,13 +158,18 @@ const ChatBubbles = ({ groupRef }: { groupRef: React.RefObject<THREE.Group | nul
 const Earth = () => {
     const meshRef = useRef<THREE.Mesh>(null);
     const groupRef = useRef<THREE.Group>(null);
-    const texture = useTexture('/images/earth-specular.jpg');
-    texture.colorSpace = THREE.SRGBColorSpace;
-    texture.generateMipmaps = true;
-    texture.minFilter = THREE.LinearMipmapLinearFilter;
-    texture.magFilter = THREE.LinearFilter;
-    texture.anisotropy = 16;
-    texture.needsUpdate = true;
+    const rawTexture = useTexture('/images/earth-specular.jpg');
+    const texture = useMemo(() => rawTexture.clone(), [rawTexture]);
+
+    useEffect(() => {
+        // eslint-disable-next-line react-hooks/immutability
+        texture.colorSpace = THREE.SRGBColorSpace;
+        texture.generateMipmaps = true;
+        texture.minFilter = THREE.LinearMipmapLinearFilter;
+        texture.magFilter = THREE.LinearFilter;
+        texture.anisotropy = 16;
+        texture.needsUpdate = true;
+    }, [texture]);
 
     // Smooth clock-based rotation (frame-rate independent)
     useFrame((state) => {
@@ -176,7 +181,7 @@ const Earth = () => {
     return (
         <group rotation={[0, 0, 0.4]}>
             <group ref={groupRef} scale={2.5} position={[0, -1.5, 0]}>
-                <Sphere args={[1, 128, 128]} ref={meshRef}>
+                <Sphere args={[1, 64, 64]} ref={meshRef}>
                     {/* Inner Sphere: Continents (Dark Blue - Theme) */}
                     <meshStandardMaterial
                         color="#3b82f5" // Land Color (Base)

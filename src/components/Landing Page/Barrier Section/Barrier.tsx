@@ -1,34 +1,61 @@
 'use client';
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { CardData } from '../../../types/barrier';
 import { CheckCircle } from 'lucide-react';
 import { BARRIER_CARDS } from '../../../data/barrier';
 import { SectionHeader } from '../../Landing Page/SectionHeader'
- 
+
 // --- Components ---
 
-const Card: React.FC<{ data: CardData }> = ({ data }) => {
+const Card: React.FC<{ data: CardData }> = React.memo(({ data }) => {
   const Icon = data.icon;
+  const cardRef = useRef<HTMLDivElement>(null);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          videoRefs.current.forEach((video) => {
+            if (video) {
+              if (entry.isIntersecting) {
+                video.play().catch(() => {
+                  // Ignore errors from autoplay restrictions
+                });
+              } else {
+                video.pause();
+              }
+            }
+          });
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => {
+      if (cardRef.current) {
+        observer.unobserve(cardRef.current);
+      }
+    };
+  }, []);
 
   return (
     <div
-      className="group relative h-[700px] w-full perspective-2000"
-      style={{ perspective: '2000px' }}
+      ref={cardRef}
+      className="group relative h-auto md:h-[700px] w-full"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
-      {/* 3D Container */}
-      <div
-        className="
-          relative h-full w-full 
-          transition-all duration-500 ease-out 
-          [transform-style:preserve-3d] 
-          [transform:rotateX(4deg)_rotateY(-2deg)] 
-          group-hover:[transform:rotateX(2deg)_rotateY(-1deg)_translateY(-8px)]
-        "
-      >
-        {/* Floating Icon Box */}
+      {/* Simplified Container - Removed 3D transforms */}
+      <div className="relative h-full w-full">
+        {/* Floating Icon Box - Simplified */}
         <div
-          className="absolute -top-6 -left-6 z-20 h-20 w-20 rounded-2xl border border-blue-100 bg-white text-primary shadow-xl flex items-center justify-center animate-float"
-          style={{ animationDelay: data.iconDelay, transform: 'translateZ(40px)' }}
+          className="absolute -top-6 -left-6 z-20 h-20 w-20 rounded-2xl border border-blue-100 bg-white text-primary shadow-xl flex items-center justify-center transition-transform duration-300 hover:scale-110"
         >
           <Icon strokeWidth={1.5} size={36} />
         </div>
@@ -36,18 +63,21 @@ const Card: React.FC<{ data: CardData }> = ({ data }) => {
         {/* Card Face */}
         <div
           className="
-            absolute inset-0 z-10 
-            flex h-full w-full flex-col 
+            relative h-full w-full flex flex-col 
             overflow-hidden rounded-xl 
-            bg-white 
-            border-t border-l border-blue-100
             border-r-[12px] border-r-blue-600 
             border-b-[12px] border-b-indigo-600
             shadow-2xl
+            bg-white
+            transition-transform duration-300
+            hover:-translate-y-2
           "
         >
           {/* Main Content */}
-          <div className="relative z-10 flex h-full flex-col p-10 pt-24 transition-opacity duration-300 group-hover:opacity-30">
+          <div
+            className="relative z-10 flex h-full flex-col p-10 pt-24 transition-opacity duration-300"
+            style={{ opacity: isHovered ? 0.3 : 1 }}
+          >
             <h3 className="mb-6 text-3xl font-extrabold text-slate-900 tracking-tight">
               {data.title}
             </h3>
@@ -62,32 +92,49 @@ const Card: React.FC<{ data: CardData }> = ({ data }) => {
               </p>
             </div>
 
-            {/* Bottom Image Grid */}
-            <div className="mt-8 h-64 w-full rounded-t-lg border-t border-blue-100 bg-blue-50/30 p-3">
-              <div className="grid h-full w-full grid-cols-2 grid-rows-2 gap-2">
-                {data.images.map((img, idx) => (
-                  <div key={idx} className="relative overflow-hidden rounded-lg bg-white shadow-sm border border-blue-100">
-                    <img
-                      src={img}
-                      alt=""
-                      className="h-full w-full object-cover opacity-80 grayscale transition-all duration-500 hover:grayscale-0"
-                    />
+            {/* Bottom Video Grid */}
+            <div className="mt-8 h-64 w-full rounded-t-lg bg-blue-50/30 p-3">
+              <div className="grid h-full w-full grid-cols-1 grid-rows-2 gap-2">
+                {data.videos.map((videoUrl, idx) => (
+                  <div key={idx} className="relative overflow-hidden rounded-lg bg-white shadow-sm">
+                    {videoUrl.endsWith('.mp4') || videoUrl.endsWith('.webm') ? (
+                      <video
+                        ref={(el) => { videoRefs.current[idx] = el; }}
+                        src={videoUrl}
+                        className="h-full w-full object-cover"
+                        loop
+                        muted
+                        playsInline
+                        preload="none"
+                      />
+                    ) : (
+                      <img
+                        src={videoUrl}
+                        alt=""
+                        className="h-full w-full object-cover opacity-80 grayscale transition-all duration-500 hover:grayscale-0"
+                        loading="lazy"
+                      />
+                    )}
                   </div>
                 ))}
               </div>
             </div>
           </div>
 
-          {/* Sliding Blue Drawer */}
+          {/* Sliding Blue Drawer - Simplified transition */}
           <div
             className="
               absolute bottom-0 left-0 right-0 z-30 
-              flex h-[40%] w-full flex-col justify-center 
+              flex w-full flex-col justify-center 
               bg-gradient-to-r from-blue-600 via-indigo-500 to-blue-400 p-10 
-              translate-y-full transition-transform duration-500 cubic-bezier(0.16,1,0.3,1)
-              group-hover:translate-y-0
+              transition-all duration-300
               border-t border-white/20
             "
+            style={{
+              height: isHovered ? '40%' : '0%',
+              opacity: isHovered ? 1 : 0,
+              pointerEvents: isHovered ? 'auto' : 'none'
+            }}
           >
             <div className="mb-3 flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-blue-100">
               <CheckCircle size={20} />
@@ -101,24 +148,26 @@ const Card: React.FC<{ data: CardData }> = ({ data }) => {
       </div>
     </div>
   );
-};
+});
+
+// Add display name for memo component
+Card.displayName = 'Card';
 
 // --- Main App ---
 
 export default function Barrier() {
   return (
-    <div className="relative min-h-screen w-full overflow-x-hidden bg-[#fcfdfe]">
+    <div className="relative min-h-screen w-full overflow-x-hidden">
 
-      {/* Background Decor */}
-      <div className="pointer-events-none absolute inset-0 z-0 opacity-40"
-        style={{ backgroundImage: 'radial-gradient(#bfdbfe 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
+      {/* Simplified Background - Removed heavy gradients */}
+      <div className="pointer-events-none absolute inset-0 z-0 opacity-20"
+        style={{ backgroundImage: 'radial-gradient(#bfdbfe 1px, transparent 1px)', backgroundSize: '60px 60px' }}>
       </div>
-      <div className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-b from-blue-50/50 via-transparent to-white"></div>
 
-      <main className="relative z-10 mx-auto max-w-7xl px-6 py-24 md:px-12 lg:px-16">
+      <section className="bg-blue-50/30 pt-14 pb-6 relative overflow-hidden">
 
         <SectionHeader
-          badgeText="Discover Solutions"
+          badgeText="Discover Our Solutions"
           badgeColor='blue'
           title="Where Do You Feel"
           highlightedText="English Barrier Most"
@@ -126,23 +175,15 @@ export default function Barrier() {
         />
 
         {/* Card Grid */}
-        <div className="grid grid-cols-1 gap-x-16 gap-y-24 lg:grid-cols-2 pb-20">
-          {BARRIER_CARDS.map((card) => (
-            <Card key={card.id} data={card} />
-          ))}
+        <div className="mx-auto max-w-7xl px-6 md:px-12 lg:px-16">
+          <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 pb-8">
+            {BARRIER_CARDS.map((card) => (
+              <Card key={card.id} data={card} />
+            ))}
+          </div>
         </div>
 
-      </main>
-
-      {/* Global Styles */}
-      <style>{`
-        .perspective-2000{
-          perspective: 2000px;
-        }
-        .cubic-bezier {
-          transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-        }
-      `}</style>
+      </section>
     </div>
   );
 }
