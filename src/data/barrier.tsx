@@ -75,7 +75,6 @@ export const BARRIER_CARDS: CardData[] = [
     cardDelay: '0.6s',
     videos: [
       '/videos/planning.mp4',
-      '/videos/planning2.mp4'
     ]
   }
 ];
