@@ -1,6 +1,18 @@
 import { PricingPlan, pricingPlans } from '@/data/pricing';
 import { SectionHeader } from './SectionHeader';
 
+export interface PricingPlan {
+    title: string;
+    price: string;
+    subtitle: string;
+    bestFor: string;
+    icons: string[];
+    features: string[];
+    cta: string;
+    highlight?: boolean;
+    badge?: string;
+}
+
 const PricingCard = ({
   title,
   price,
@@ -75,7 +87,7 @@ const PricingCard = ({
 
 export const Pricing = () => {
   return (
-    <section className="py-12 lg:py-24 bg-slate-50 border-t border-slate-100">
+    <section className="py-12 lg:py-24 bg-blue-50/50 border-t border-blue-100">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         < SectionHeader

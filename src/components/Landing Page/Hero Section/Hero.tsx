@@ -3,6 +3,9 @@
 import { Globe } from './Globe';
 import { Navbar } from './Navbar';
 
+import { SilentBarrierCard } from './SilentBarrierCard';
+import { Mail, MessageSquare, Bell } from 'lucide-react';
+
 
 export const Hero = () => {
   return (
@@ -57,6 +60,24 @@ export const Hero = () => {
                 </div>
               </div>
 
+              {/* Ganito po ba dapat */}
+              <div className="relative w-full px-0 py-6 font-sans grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <SilentBarrierCard
+                  icon={Mail}
+                  title="Unanswered Emails"
+                  subtitle="Average 40% drop-off"
+                />
+                <SilentBarrierCard
+                  icon={MessageSquare}
+                  title="Lost Conversations"
+                  subtitle="Misunderstood intent"
+                />
+                <SilentBarrierCard
+                  icon={Bell}
+                  title="Missed Deals"
+                  subtitle="Delayed response"
+                />
+              </div>
 
               {/* <div className="flex items-center justify-between mb-2">
                 <p className="text-xs font-semibold text-black uppercase tracking-wider whitespace-nowrap">THE SILENT BARRIER</p>
@@ -68,6 +89,8 @@ export const Hero = () => {
               </div> */}
             </div>
           </div>
+
+          {/* Silent Barrier Section inserted below the main hero grid */}
         </div>
       </header>
     </>

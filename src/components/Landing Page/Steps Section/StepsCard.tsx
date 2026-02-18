@@ -1,12 +1,21 @@
 import React from "react";
-import { GrowthStep } from "../../../types/steps";
-
+import { ReactNode } from  'react';
 interface StepCardProps {
-  step: GrowthStep;
   animationClass: string;
+  stepNumber: string;
+  title: string;
+  description: string;
+  icon: ReactNode;
 }
 
-export const StepsCard: React.FC<StepCardProps> = ({ step, animationClass }) => {
+
+export const StepsCard: React.FC<StepCardProps> = ({ 
+  animationClass, 
+  stepNumber,
+  title,
+  description,
+  icon
+  }) => {
   return (
     <div className={`relative group w-full cursor-pointer ${animationClass}`}>
       {/* 3D Depth Effect Layer */}
@@ -15,7 +24,7 @@ export const StepsCard: React.FC<StepCardProps> = ({ step, animationClass }) => 
       {/* Floating Icon Container */}
       <div className="absolute -top-6 left-6 z-30 animate-wiggle">
         <div className="w-12 h-12 bg-white rounded-xl shadow-lg border border-slate-100 flex items-center justify-center">
-          {step.icon}
+          {icon}
         </div>
       </div>
 
@@ -24,16 +33,16 @@ export const StepsCard: React.FC<StepCardProps> = ({ step, animationClass }) => 
         {/* Step Badge */}
         <div className="absolute top-4 right-4">
           <span className="inline-flex items-center px-2 py-1 rounded bg-blue-50 border border-blue-100 text-[10px] font-bold tracking-widest text-blue-500 font-mono">
-            STEP {step.stepNumber}
+            STEP {stepNumber}
           </span>
         </div>
 
         {/* Content */}
         <h3 className="text-lg font-bold text-slate-800 mb-3 group-hover:text-blue-600 transition-colors">
-          {step.title}
+          {title}
         </h3>
         <p className="text-sm text-slate-500 leading-relaxed">
-          {step.description}
+          {description}
         </p>
       </div>
     </div>

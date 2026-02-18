@@ -51,7 +51,7 @@ export const Carousel = () => {
   const [isPaused, setIsPaused] = useState(false);
   const [startX, setStartX] = useState(0);
   const [dragOffset, setDragOffset] = useState(0);
-  const animationRef = useRef<number>();
+  const animationRef = useRef<number>(0);
 
   const images = carouselData[activeTab];
   const totalImages = images.length;
@@ -197,7 +197,7 @@ export const Carousel = () => {
 
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 mb-4 tracking-tight leading-[1.1]">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-500 to-blue-400">Showcase Your Reach</span> 
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-500 to-blue-400">Showcase Your Reach</span>
           </h2>
           <p className="text-base md:text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
             Visualize your global content strategy across multiple channels with our integrated tools.

@@ -255,6 +255,42 @@ body {
   }
 }
 
-.animate-shimmer {
-  animation: shimmer 2.5s ease-in-out infinite;
+
+/* Icon Animations for Barrier Section */
+@keyframes icon-float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes icon-shake {
+
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(-5deg);
+  }
+
+  75% {
+    transform: rotate(5deg);
+  }
+}
+
+.icon-float {
+  animation: icon-float 3s ease-in-out infinite;
+}
+
+.icon-shake {
+  animation: icon-shake 5s ease-in-out infinite;
+  display: inline-block;
+  /* Essential for transform */
 }

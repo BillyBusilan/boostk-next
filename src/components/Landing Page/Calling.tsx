@@ -23,9 +23,6 @@ export const Calling  = () => {
                             <button className="px-8 py-3.5 bg-white text-[#3b82f5] font-bold text-base rounded-lg hover:bg-blue-50 transition-all shadow-md active:scale-95">
                             Get Started Now
                             </button>
-                            <button className="px-8 py-3.5 bg-transparent border border-white/50 text-white font-bold text-base rounded-lg hover:bg-white/10 hover:border-white transition-all active:scale-95">
-                            Contact Sales
-                            </button>
                         </div>
                         <p className="text-[11px] text-blue-100 font-medium tracking-wide opacity-80">
                             No credit card required • 14-day free trial • Cancel anytime
