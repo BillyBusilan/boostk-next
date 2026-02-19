@@ -1,5 +1,4 @@
-'use client';
-import React, { useEffect, useRef, useState } from 'react';
+'use client'
 import { SectionHeader } from '../SectionHeader'
 import { LucideIcon } from 'lucide-react';
 import { BarrierCard } from './BarrierCard';

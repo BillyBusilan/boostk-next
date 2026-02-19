@@ -248,6 +248,22 @@ const Earth = () => {
 };
 
 export const Globe = () => {
+    const [webGLAvailable, setWebGLAvailable] = useState(true);
+
+    useEffect(() => {
+        try {
+            const canvas = document.createElement('canvas');
+            const available = !!(window.WebGLRenderingContext && (canvas.getContext('webgl') || canvas.getContext('experimental-webgl')));
+            setWebGLAvailable(available);
+        } catch {
+            setWebGLAvailable(false);
+        }
+    }, []);
+
+    if (!webGLAvailable) {
+        return null;
+    }
+
     return (
         <div className="absolute inset-0 z-0 h-full w-full pointer-events-none overflow-hidden">
             <Canvas camera={{ position: [0, 0, 5], fov: 35 }} style={{ background: 'transparent' }}>

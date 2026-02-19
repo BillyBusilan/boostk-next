@@ -18,7 +18,7 @@ export const HeadquartersSection: React.FC = () => {
                             badgeColor='blue'
                             title="BOOSTK — Your Global"
                             highlightedText="Business Headquarters"
-                            description="We're not just another outsourcing company..."
+                            description="We're not just another outsourcing company. Our English-proficient professionals in the BOOSTK act as your in-house Global Department, handling all English-driven operations such as marketing, sales, business planning, and client communication. You focus on your product. We'll handle your global communication."
                             align="left"
                         />
                     </div>

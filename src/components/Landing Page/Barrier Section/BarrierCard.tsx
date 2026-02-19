@@ -1,4 +1,4 @@
-// BarrierCard.tsx
+'use client'
 import React, { useRef, useEffect, useState } from 'react';
 import { LucideIcon } from 'lucide-react';
 import { CheckCircle } from 'lucide-react';

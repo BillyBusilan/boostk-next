@@ -26,7 +26,7 @@ export const Hero = () => {
 
               <h1 className="text-5xl lg:text-7xl font-bold tracking-tight text-slate-900 mb-6 leading-tight">
                 Speak Local.<br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-500 to-blue-400">Sell Global.</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-500 to-blue-800">Sell Global.</span>
               </h1>
 
               <p className="text-lg text-slate-600 mb-8 leading-relaxed max-w-lg">

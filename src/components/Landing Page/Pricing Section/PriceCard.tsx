@@ -1,6 +1,3 @@
-import { PricingPlan, pricingPlans } from '@/data/pricing';
-import { SectionHeader } from './SectionHeader';
-
 export interface PricingPlan {
     title: string;
     price: string;
@@ -13,7 +10,7 @@ export interface PricingPlan {
     badge?: string;
 }
 
-const PricingCard = ({
+export const PriceCard = ({
   title,
   price,
   subtitle,
@@ -84,26 +81,3 @@ const PricingCard = ({
     </div>
   </div>
 );
-
-export const Pricing = () => {
-  return (
-    <section className="py-12 lg:py-24 bg-blue-50/50 border-t border-blue-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-        < SectionHeader
-          badgeText="Our Services"
-          badgeColor='blue'
-          title="See What You"
-          highlightedText="Get"
-          description="Not just services—real deliverables you can see and measure."
-        />
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-6">
-          {pricingPlans.map((plan, index) => (
-            <PricingCard key={index} {...plan} />
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
